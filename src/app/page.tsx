@@ -1,3 +1,11 @@
+import { AuroraBackground } from "@/components/ui/aurora-background";
+
 export default function Home() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div>
+      <AuroraBackground>
+        <h1>Home</h1>
+      </AuroraBackground>
+    </div>
+  );
 }
