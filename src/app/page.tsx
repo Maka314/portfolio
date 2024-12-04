@@ -1,4 +1,4 @@
-import { AuroraBackground } from '@/components/ui/aurora-background'
+import { AuroraBackground } from '@/components/ui/AuroraBackground'
 
 export default function Home () {
   return (

@@ -1,5 +1,5 @@
 'use client'
-import style from './aurora-background.module.css'
+import style from './AuroraBackground.module.css'
 import React, { ReactNode } from 'react'
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
