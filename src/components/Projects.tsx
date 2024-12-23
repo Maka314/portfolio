@@ -1,3 +1,5 @@
+import SectionHeading from '@/components/ui/section_heading/SectionHeading';
+
 import ProjectCard from '@/components/ui/project_card/ProjectCard';
 import { ProjectCardProps } from '@/components/ui/project_card/ProjectCard';
 
@@ -11,7 +13,7 @@ const projectInfo: ProjectCardProps = {
 export default function Projects() {
   return (
     <div className='flex flex-col justify-center items-center h-auto py-12'>
-      <h1 className='text-4xl font-bold'>Projects</h1>
+      <SectionHeading>Projects</SectionHeading  >
       <div className='flex flex-row justify-center items-center'>
         <ProjectCard {...projectInfo} />
         <ProjectCard {...projectInfo} />
