@@ -1,7 +1,9 @@
+import SectionHeading from '@/components/ui/section_heading/SectionHeading';
+
 export default function Skills() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <h1>Skills</h1>
+      <SectionHeading>Skills</SectionHeading>
     </div>
   )
 }
