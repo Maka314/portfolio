@@ -16,7 +16,7 @@ export default function ProjectCard({
   projectLink,
   projectImage,
 }: ProjectCardProps) {
-  projectImage = projectImage || '/images/placeholder600*400.svg';
+  projectImage = projectImage || '/images/placeholder600_400.svg';
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
