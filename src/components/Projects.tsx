@@ -10,13 +10,23 @@ const projectInfo: ProjectCardProps = {
   projectImage: '/images/project_cover.png',
 };
 
+const projectInfo2: ProjectCardProps = {
+  projectName: 'Project Name2',
+  projectDescription: 'A parking space time-sharing rental system, addressing urban parking challenges and increasing income for parking space owners.',
+  projectLink: 'Project Link2',
+};
+
 export default function Projects() {
   return (
     <div className='flex flex-col justify-center items-center h-auto py-12'>
       <SectionHeading>Projects</SectionHeading  >
-      <div className='flex flex-row justify-center items-center'>
+      <div className='flex flex-row justify-center items-start flex-wrap'>
         <ProjectCard {...projectInfo} />
-        <ProjectCard {...projectInfo} />
+        <ProjectCard {...projectInfo2} />
+        <ProjectCard {...projectInfo2} />
+        <ProjectCard {...projectInfo2} />
+        <ProjectCard {...projectInfo2} />
+        <ProjectCard {...projectInfo2} />
       </div>
     </div>
   );

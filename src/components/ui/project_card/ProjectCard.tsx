@@ -7,7 +7,7 @@ export interface ProjectCardProps {
   projectName: string;
   projectDescription: string;
   projectLink: string;
-  projectImage: string;
+  projectImage?: string;
 }
 
 export default function ProjectCard({
@@ -16,6 +16,7 @@ export default function ProjectCard({
   projectLink,
   projectImage,
 }: ProjectCardProps) {
+  projectImage = projectImage || '/images/placeholder600*400.svg';
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -48,7 +49,7 @@ export default function ProjectCard({
   return (
     <motion.div
       className='box'
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       style={{
         transformStyle: 'preserve-3d',
@@ -62,7 +63,7 @@ export default function ProjectCard({
     >
       <a
         href={projectLink}
-        className='h-screen-70 max-h-screen rounded-xl m-7 p-2 flex flex-col justify-start items-start bg-slate-200 border border-slate-500'
+        className='gap-2 max-h-screen w-80 rounded-xl m-7 p-5 flex flex-col justify-start items-start bg-slate-200 border border-slate-500 dark:bg-slate-800 dark:border-slate-700'
         style={{
           transformStyle: 'preserve-3d',
         }}
@@ -75,24 +76,25 @@ export default function ProjectCard({
           height={100}
           className='rounded-xl'
           style={{
-            transform: 'translateZ(25px)',
+            transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
           }}
         />
         <h1
           style={{
-            transform: 'translateZ(25px)',
+            transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
           }}
-          className='font-semibold text-2xl'
+          className='font-semibold text-2xl overflow-auto'
         >
           {projectName}
         </h1>
         <p
           style={{
-            transform: 'translateZ(25px)',
+            transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
           }}
+          className='break-words whitespace-normal'
         >
           {projectDescription}
         </p>
