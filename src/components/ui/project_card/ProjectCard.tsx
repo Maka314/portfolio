@@ -2,7 +2,6 @@
 import Image from 'next/image';
 
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { transform } from 'next/dist/build/swc/generated-native';
 
 export interface ProjectCardProps {
   projectName: string;
@@ -27,7 +26,7 @@ export default function ProjectCard({
   const rotateY = useTransform(springX, [-0.5, 0.5], ['-17.5deg', '17.5deg']);
 
   const handleMouseMoce = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.target.getBoundingClientRect();
+    const rect = (event.target as HTMLDivElement).getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
 
@@ -51,7 +50,12 @@ export default function ProjectCard({
       className='box'
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      style={{ transformStyle: 'preserve-3d', transform:'perspective(1000px) scale3d(1, 1, 1)', rotateX, rotateY }}
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: 'perspective(1000px) scale3d(1, 1, 1)',
+        rotateX,
+        rotateY,
+      }}
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       onMouseMove={handleMouseMoce}
       onMouseLeave={handleMouseLeave}
