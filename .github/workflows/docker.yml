@@ -39,5 +39,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/porefolio:${{ steps.version.outputs.version }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/porefolio:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
