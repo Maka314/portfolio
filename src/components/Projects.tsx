@@ -15,19 +15,19 @@ const projectsData: ProjectData[] = [
     projectName: "FX Risk Control System",
     projectImage: "/images/project2_cover.png",
     description: "Monitoring of foreign exchange trading behavior using machine learning methods",
-    projectLink: "https://www.traveller314.com"
+    projectLink: "/projects/fx-risk-control-system"
   },
   {
     projectName: "LLM Industry Application",
     projectImage: "/images/project2_cover.png",
     description: "LLM deployed in actual production environments is used to simplify customer service processes and intelligent services on the business side.",
-    projectLink: "https://www.traveller314.com"
+    projectLink: "/projects/llm-industry-application"
   },
   {
     projectName: "First Place in Neara Hackathon",
     projectImage: "/images/project3_cover.png",
     description: "First place in the hackathon competition held by UNSW in collaboration with Neara, out of more than 30 teams. Development language is kotlin",
-    projectLink: "https://www.traveller314.com"
+    projectLink: "/projects/first-place-in-neara-hackathon"
   }
 ];
 
