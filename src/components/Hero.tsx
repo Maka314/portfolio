@@ -30,7 +30,7 @@ export default function Hero() {
       >
         <h1 className='hero_heading'>
           Hi! I&apos;m <span className='font-medium'>Mingchen Ju</span> <br />{' '}
-          A
+          And I&apos;m a
           <RotatingText
             texts={title_list}
             mainClassName="px-2 sm:px-2 md:px-3 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
