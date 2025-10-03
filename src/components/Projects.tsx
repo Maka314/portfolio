@@ -9,7 +9,7 @@ interface ProjectData {
   projectLink: string;
 }
 
-// 项目数据直接定义在组件中
+// 项目数据数组
 const projectsData: ProjectData[] = [
   {
     projectName: "FX Risk Control System",
