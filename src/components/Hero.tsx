@@ -34,6 +34,7 @@ export default function Hero() {
           <RotatingText
             texts={title_list}
             mainClassName="px-2 sm:px-2 md:px-3 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            elementLevelClassName='text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white'
             staggerFrom={"last"}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
