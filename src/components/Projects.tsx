@@ -11,6 +11,12 @@ interface ProjectData {
 
 // 项目数据数组
 const projectsData: ProjectData[] = [
+  // {
+  //   projectName: "AI Regulatory Assistant",
+  //   projectImage: "/images/project2_cover.png",
+  //   description: "A large language model–based regulatory assistant for the construction field that helps users quickly search and understand relevant regulations, improving work efficiency.",
+  //   projectLink: "/projects/ai-regulation-assistant"
+  // },
   {
     projectName: "FX Risk Control System",
     projectImage: "/images/project2_cover.png",
@@ -24,7 +30,7 @@ const projectsData: ProjectData[] = [
     projectLink: "/projects/llm-industry-application"
   },
   {
-    projectName: "First Place in Neara Hackathon",
+    projectName: "Neara Hackathon Winner",
     projectImage: "/images/project3_cover.png",
     description: "First place in the hackathon competition held by UNSW in collaboration with Neara, out of more than 30 teams. Development language is kotlin",
     projectLink: "/projects/first-place-in-neara-hackathon"
