@@ -71,10 +71,9 @@ export default function ProjectCard({
         <Image
           src={projectImage}
           alt='project cover'
-          layout='responsive'
           width={100}
           height={100}
-          className='rounded-xl'
+          className='rounded-xl w-full h-auto'
           style={{
             transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
