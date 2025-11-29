@@ -15,25 +15,25 @@ const projectsData: ProjectData[] = [
   //   projectName: "AI Regulatory Assistant",
   //   projectImage: "/images/project2_cover.png",
   //   description: "A large language model–based regulatory assistant for the construction field that helps users quickly search and understand relevant regulations, improving work efficiency.",
-  //   projectLink: "/projects/ai-regulation-assistant"
+  //   projectLink: "/posts/ai-regulation-assistant"
   // },
   {
     projectName: "FX Risk Control System",
     projectImage: "/images/project2_cover.png",
     description: "Monitoring of foreign exchange trading behavior using machine learning methods",
-    projectLink: "/projects/fx-risk-control-system"
+    projectLink: "/posts/fx-risk-control-system"
   },
   {
     projectName: "LLM Industry Application",
     projectImage: "/images/project2_cover.png",
     description: "LLM deployed in actual production environments is used to simplify customer service processes and intelligent services on the business side.",
-    projectLink: "/projects/llm-industry-application"
+    projectLink: "/posts/llm-industry-application"
   },
   {
     projectName: "Neara Hackathon Winner",
     projectImage: "/images/project3_cover.png",
     description: "First place in the hackathon competition held by UNSW in collaboration with Neara, out of more than 30 teams. Development language is kotlin",
-    projectLink: "/projects/first-place-in-neara-hackathon"
+    projectLink: "/posts/first-place-in-neara-hackathon"
   }
 ];
 

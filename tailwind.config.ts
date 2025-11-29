@@ -46,5 +46,5 @@ export default {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, require('@tailwindcss/typography')],
 } satisfies Config;
