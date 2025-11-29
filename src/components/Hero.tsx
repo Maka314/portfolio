@@ -10,7 +10,6 @@ const title_list = [
   'Web Developer',
   'Project Manager',
   'Tech Enthusiast',
-  'Learner',
 ];
 
 export default function Hero() {
