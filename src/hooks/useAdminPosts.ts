@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Post, PostData, ViewMode, MetadataFormData } from '@/types/admin'
 
@@ -24,11 +24,7 @@ export function useAdminPosts() {
   const [content, setContent] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('split')
 
-  useEffect(() => {
-    loadPosts()
-  }, [])
-
-  const loadPosts = async () => {
+  const loadPosts = useCallback(async () => {
     try {
       setLoading(true)
       const res = await fetch('/api/posts')
@@ -47,7 +43,11 @@ export function useAdminPosts() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [router])
+
+  useEffect(() => {
+    loadPosts()
+  }, [loadPosts])
 
   const loadPost = async (postSlug: string) => {
     try {
