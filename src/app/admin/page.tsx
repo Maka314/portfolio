@@ -1,34 +1,77 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import AdminHeader from '@/components/admin/AdminHeader/AdminHeader'
+import ResizableSidebar from '@/components/admin/ResizableSidebar/ResizableSidebar'
+import PostList from '@/components/admin/PostList/PostList'
+import PostEditor from '@/components/admin/PostEditor/PostEditor'
+import { useAdminPosts } from '@/hooks/useAdminPosts'
 
 export default function AdminDashboard() {
-  const router = useRouter()
-
-  const handleLogout = async () => {
-    await fetch('/api/auth/logout', { method: 'POST' })
-    router.push('/login')
-    router.refresh()
-  }
+  const {
+    posts,
+    loading,
+    saving,
+    error,
+    success,
+    currentPost,
+    isEditing,
+    isNewPost,
+    metadata,
+    content,
+    viewMode,
+    loadPost,
+    handleNewPost,
+    handleSave,
+    handleDelete,
+    handleCancel,
+    handleLogout,
+    handleMetadataChange,
+    setContent,
+    setViewMode,
+  } = useAdminPosts()
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded transition-colors"
-          >
-            Logout
-          </button>
-        </div>
-        
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <p className="text-gray-300">
-            Welcome to the protected admin area. Only logged in users can see this.
-          </p>
-          {/* Add admin functionality here later */}
+    <div className="min-h-screen bg-gray-900 text-white">
+      <AdminHeader onLogout={handleLogout} />
+
+      <div className="flex h-[calc(100vh-73px)]">
+        <ResizableSidebar>
+          <PostList
+            posts={posts}
+            selectedSlug={currentPost?.slug || null}
+            loading={loading}
+            onSelectPost={loadPost}
+            onNewPost={handleNewPost}
+          />
+        </ResizableSidebar>
+
+        <div className="flex-1 overflow-y-auto">
+          {!isEditing ? (
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center text-gray-400">
+                <p className="text-xl mb-4">Select a post to edit or create a new one</p>
+                {success && (
+                  <p className="text-green-500 mb-2">{success}</p>
+                )}
+              </div>
+            </div>
+          ) : (
+            <PostEditor
+              metadata={metadata}
+              content={content}
+              viewMode={viewMode}
+              isNewPost={isNewPost}
+              saving={saving}
+              error={error}
+              success={success}
+              onMetadataChange={handleMetadataChange}
+              onContentChange={setContent}
+              onViewModeChange={setViewMode}
+              onSave={handleSave}
+              onDelete={handleDelete}
+              onCancel={handleCancel}
+            />
+          )}
         </div>
       </div>
     </div>
