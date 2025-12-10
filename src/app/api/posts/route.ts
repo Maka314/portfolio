@@ -4,7 +4,10 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const postsDirectory = path.join(process.cwd(), 'src/content/posts')
+// 使用环境变量配置的外部目录，如果未设置则使用默认内部目录
+const postsDirectory = process.env.POSTS_DIR 
+  ? path.resolve(process.env.POSTS_DIR)
+  : path.join(process.cwd(), 'src/content/posts')
 
 // GET: 获取所有文章列表
 export async function GET() {
