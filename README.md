@@ -20,6 +20,49 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and configure the following variables:
+
+- `ADMIN_PASSWORD`: Password for admin access
+- `JWT_SECRET`: Secret key for JWT token generation
+- `POSTS_DIR`: (Optional) Directory path for blog posts storage. Defaults to `src/content/posts` if not set.
+
+## Blog Persistence
+
+Blog posts are stored as markdown files. By default, posts are stored in `src/content/posts` within the application directory.
+
+For production deployments (especially with Docker), you can configure an external directory for persistent blog storage using the `POSTS_DIR` environment variable. This ensures blog posts are not lost when containers are rebuilt or restarted.
+
+### Docker Deployment
+
+When running with Docker, mount an external volume to persist blog posts:
+
+```bash
+# Build the Docker image
+docker build -t portfolio .
+
+# Run with volume mount for blog persistence
+docker run -d \
+  -p 3000:3000 \
+  -v /path/to/your/posts:/data/posts \
+  -e ADMIN_PASSWORD=your_password \
+  -e JWT_SECRET=your_secret \
+  -e POSTS_DIR=/data/posts \
+  portfolio
+```
+
+Alternatively, use Docker Compose (copy `docker-compose.example.yml` to `docker-compose.yml` and customize):
+
+```bash
+# Copy the example file
+cp docker-compose.example.yml docker-compose.yml
+
+# Edit docker-compose.yml to set your credentials
+# Then start the service
+docker-compose up -d
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

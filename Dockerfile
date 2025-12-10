@@ -47,6 +47,9 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Create directory for external blog posts storage
+RUN mkdir -p /data/posts && chown -R nextjs:nodejs /data/posts
+
 COPY --from=builder /app/public ./public
 
 # Automatically leverage output traces to reduce image size
@@ -59,6 +62,8 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT=3000
+# Set default posts directory to external volume
+ENV POSTS_DIR=/data/posts
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
