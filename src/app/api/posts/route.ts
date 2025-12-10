@@ -102,8 +102,7 @@ export async function POST(request: NextRequest) {
     fs.writeFileSync(filePath, fileContent, 'utf8')
 
     return NextResponse.json({ success: true, slug })
-  } catch(error) {
-    console.error('Error creating post:', error)
+  } catch {
     return NextResponse.json(
       { error: 'Failed to create post' },
       { status: 500 }
