@@ -52,21 +52,15 @@ docker run -d \
   portfolio
 ```
 
-Alternatively, use Docker Compose:
+Alternatively, use Docker Compose (copy `docker-compose.example.yml` to `docker-compose.yml` and customize):
 
-```yaml
-version: '3.8'
-services:
-  portfolio:
-    build: .
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./posts:/data/posts
-    environment:
-      - ADMIN_PASSWORD=your_password
-      - JWT_SECRET=your_secret
-      - POSTS_DIR=/data/posts
+```bash
+# Copy the example file
+cp docker-compose.example.yml docker-compose.yml
+
+# Edit docker-compose.yml to set your credentials
+# Then start the service
+docker-compose up -d
 ```
 
 ## Learn More
