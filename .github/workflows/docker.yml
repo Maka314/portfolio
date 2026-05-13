@@ -4,6 +4,12 @@ on:
   push:
     paths:
       - 'package.json'
+      - 'src/**'
+      - 'public/**'
+      - 'next.config.ts'
+      - 'tailwind.config.ts'
+      - 'tsconfig.json'
+      - 'Dockerfile'
   workflow_dispatch:
 
 jobs:
