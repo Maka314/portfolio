@@ -5,3 +5,83 @@
 .hero_heading {
   @apply text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white;
 }
+
+/* WordPress content enhancements */
+@layer components {
+  .prose-custom :where(h1, h2, h3, h4, h5, h6) {
+    @apply scroll-mt-20;
+  }
+
+  .prose-custom h2 {
+    @apply text-2xl font-semibold mt-12 mb-4 text-zinc-900 dark:text-zinc-50;
+  }
+
+  .prose-custom h3 {
+    @apply text-xl font-semibold mt-8 mb-3 text-zinc-900 dark:text-zinc-50;
+  }
+
+  .prose-custom p {
+    @apply leading-relaxed text-zinc-700 dark:text-zinc-300;
+  }
+
+  .prose-custom a {
+    @apply text-zinc-900 dark:text-zinc-50 underline underline-offset-4 decoration-zinc-400 dark:decoration-zinc-600 hover:decoration-zinc-800 dark:hover:decoration-zinc-300 transition-colors;
+  }
+
+  .prose-custom blockquote {
+    border-left-width: 2px;
+    @apply border-zinc-300 dark:border-zinc-600 pl-5 italic text-zinc-600 dark:text-zinc-400;
+  }
+
+  .prose-custom blockquote p {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+
+  .prose-custom code {
+    @apply bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-md px-1.5 py-0.5 text-sm font-mono;
+  }
+
+  .prose-custom pre {
+    @apply bg-zinc-100 dark:bg-zinc-800 rounded-xl p-5 overflow-x-auto text-sm leading-relaxed;
+  }
+
+  .prose-custom pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .prose-custom img {
+    @apply rounded-xl my-8;
+  }
+
+  .prose-custom figure {
+    @apply my-8;
+  }
+
+  .prose-custom figcaption {
+    @apply text-center text-sm text-zinc-500 dark:text-zinc-400 mt-3;
+  }
+
+  .prose-custom :where(ul, ol) {
+    @apply text-zinc-700 dark:text-zinc-300 leading-relaxed;
+  }
+
+  .prose-custom :where(ul, ol) li::marker {
+    @apply text-zinc-400 dark:text-zinc-500;
+  }
+
+  .prose-custom hr {
+    @apply border-zinc-200 dark:border-zinc-800 my-10;
+  }
+
+  .prose-custom table {
+    @apply w-full border-collapse;
+  }
+
+  .prose-custom table th {
+    @apply border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 px-4 py-2 text-left text-sm font-semibold;
+  }
+
+  .prose-custom table td {
+    @apply border border-zinc-200 dark:border-zinc-700 px-4 py-2 text-sm;
+  }
+}
