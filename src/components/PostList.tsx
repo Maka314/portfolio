@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { WordPressPost } from "@/lib/wordpress";
 import { fetchPosts } from "@/lib/wordpress";
 
@@ -70,10 +71,12 @@ export default function PostList() {
           >
             {featuredImg && (
               <div className="aspect-video overflow-hidden">
-                <img
+                <Image
                   src={featuredImg}
                   alt=""
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  unoptimized
                 />
               </div>
             )}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import type { WordPressPost } from "@/lib/wordpress";
 import { fetchPostBySlug } from "@/lib/wordpress";
@@ -158,10 +159,12 @@ export default function PostContent({ slug }: { slug: string }) {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             >
               <div className="relative aspect-video sm:rounded-xl overflow-hidden">
-                <img
+                <Image
                   src={featuredImg}
                   alt=""
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/10 to-transparent" />
               </div>
