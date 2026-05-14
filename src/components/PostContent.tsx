@@ -172,7 +172,7 @@ export default function PostContent({ slug }: { slug: string }) {
 
           <div className="flex justify-between items-center">
             <Link
-              href="/posts"
+              href="/"
               className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
             >
               <svg
