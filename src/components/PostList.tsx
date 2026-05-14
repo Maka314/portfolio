@@ -70,7 +70,7 @@ export default function PostList() {
             className="group block rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           >
             {featuredImg && (
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video overflow-hidden relative">
                 <Image
                   src={featuredImg}
                   alt=""
