@@ -72,10 +72,10 @@ export default function PostContent({ slug }: { slug: string }) {
         </div>
         <p className="text-red-500 text-sm">{error}</p>
         <Link
-          href="/posts"
+          href="/"
           className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
         >
-          &larr; Back to Posts
+          &larr; Back to Homepage
         </Link>
       </div>
     );
@@ -86,10 +86,10 @@ export default function PostContent({ slug }: { slug: string }) {
       <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4">
         <p className="text-zinc-500">Post not found.</p>
         <Link
-          href="/posts"
+          href="/"
           className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
         >
-          &larr; Back to Posts
+          &larr; Back to Homepage
         </Link>
       </div>
     );
@@ -131,12 +131,7 @@ export default function PostContent({ slug }: { slug: string }) {
       <main className="px-8 pb-20">
         <article ref={articleRef} className="max-w-3xl mx-auto">
           {/* Article header */}
-          <motion.header
-            className="mb-10"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
+          <header className="mb-10">
             <h1
               className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6 leading-tight"
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -148,16 +143,11 @@ export default function PostContent({ slug }: { slug: string }) {
               <span className="text-zinc-300 dark:text-zinc-700">·</span>
               <span>{readingTime} min read</span>
             </div>
-          </motion.header>
+          </header>
 
           {/* Featured image */}
           {featuredImg && (
-            <motion.div
-              className="mb-12 -mx-4 sm:mx-0"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            >
+            <div className="mb-12 -mx-4 sm:mx-0">
               <div className="relative aspect-video sm:rounded-xl overflow-hidden">
                 <Image
                   src={featuredImg}
@@ -168,15 +158,12 @@ export default function PostContent({ slug }: { slug: string }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/10 to-transparent" />
               </div>
-            </motion.div>
+            </div>
           )}
 
           {/* Article content */}
-          <motion.div
+          <div
             className="prose-custom prose prose-zinc dark:prose-invert max-w-none"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />
 
@@ -197,7 +184,7 @@ export default function PostContent({ slug }: { slug: string }) {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
               </svg>
-              Back to Posts
+              Back to Homepage
             </Link>
           </div>
         </article>
@@ -247,7 +234,7 @@ function Skeleton() {
               <div
                 key={i}
                 className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded"
-                style={{ width: `${Math.random() * 40 + 60}%` }}
+                style={{ width: `${85 - i * 3}%` }}
               />
             ))}
           </div>
