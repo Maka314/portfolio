@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
-import Link from "next/link";
+import { useCallback, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import type { WordPressPost } from "@/lib/wordpress";
 import { fetchPostBySlug } from "@/lib/wordpress";
 
@@ -35,6 +35,15 @@ export default function PostContent({ slug }: { slug: string }) {
   const [progress, setProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const articleRef = useRef<HTMLElement>(null);
+  const router = useRouter();
+
+  const goBack = useCallback(() => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  }, [router]);
 
   useEffect(() => {
     fetchPostBySlug(slug)
@@ -71,12 +80,12 @@ export default function PostContent({ slug }: { slug: string }) {
           <span className="text-red-500 text-xl">!</span>
         </div>
         <p className="text-red-500 text-sm">{error}</p>
-        <Link
-          href="/"
+        <button
+          onClick={goBack}
           className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
         >
-          &larr; Back to Homepage
-        </Link>
+          &larr; Go back
+        </button>
       </div>
     );
   }
@@ -85,12 +94,12 @@ export default function PostContent({ slug }: { slug: string }) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4">
         <p className="text-zinc-500">Post not found.</p>
-        <Link
-          href="/"
+        <button
+          onClick={goBack}
           className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
         >
-          &larr; Back to Homepage
-        </Link>
+          &larr; Go back
+        </button>
       </div>
     );
   }
@@ -111,8 +120,8 @@ export default function PostContent({ slug }: { slug: string }) {
 
       {/* Top nav */}
       <nav className="flex justify-between items-center px-8 py-6 max-w-3xl mx-auto">
-        <Link
-          href="/posts"
+        <button
+          onClick={goBack}
           className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
         >
           <svg
@@ -124,8 +133,8 @@ export default function PostContent({ slug }: { slug: string }) {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
-          Back to Posts
-        </Link>
+          Go back
+        </button>
       </nav>
 
       <main className="px-8 pb-20">
@@ -171,8 +180,8 @@ export default function PostContent({ slug }: { slug: string }) {
           <hr className="mt-16 mb-8 border-zinc-200 dark:border-zinc-800" />
 
           <div className="flex justify-between items-center">
-            <Link
-              href="/"
+            <button
+              onClick={goBack}
               className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
             >
               <svg
@@ -184,8 +193,8 @@ export default function PostContent({ slug }: { slug: string }) {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
               </svg>
-              Back to Homepage
-            </Link>
+              Go back
+            </button>
           </div>
         </article>
       </main>

@@ -18,14 +18,6 @@ const title_list = [
 export default function Hero() {
   return (
     <AuroraBackground>
-      <nav className="absolute top-0 right-0 p-8 z-30">
-        <Link
-          href="/posts"
-          className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
-        >
-          Posts
-        </Link>
-      </nav>
       <motion.section
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
