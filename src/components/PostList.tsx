@@ -65,7 +65,7 @@ export default function PostList() {
         return (
           <Link
             key={post.id}
-            href={`/posts/${post.slug}`}
+            href={`/post?slug=${post.slug}`}
             className="group block rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           >
             {featuredImg && (

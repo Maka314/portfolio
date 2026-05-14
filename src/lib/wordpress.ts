@@ -22,9 +22,7 @@ export interface WordPressPost {
 const API_BASE = "https://cms.traveller314.com/wp-json/wp/v2";
 
 export async function fetchPosts(): Promise<WordPressPost[]> {
-  const res = await fetch(`${API_BASE}/posts?_embed&per_page=50`, {
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(`${API_BASE}/posts?_embed&per_page=50`);
   if (!res.ok) throw new Error("Failed to fetch posts");
   return res.json();
 }
