@@ -1,26 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
 import type { WordPressPost } from "@/lib/wordpress";
 import { fetchPostBySlug } from "@/lib/wordpress";
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
-function stripHtml(html: string): string {
-  if (typeof document === "undefined") return "";
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  return div.textContent || div.innerText || "";
-}
+import { formatDate, stripHtml } from "@/lib/utils";
+import BackButton from "@/components/BackButton";
 
 function estimateReadingTime(html: string): number {
   const text = stripHtml(html);
@@ -35,15 +21,6 @@ export default function PostContent({ slug }: { slug: string }) {
   const [progress, setProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const articleRef = useRef<HTMLElement>(null);
-  const router = useRouter();
-
-  const goBack = useCallback(() => {
-    if (window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/");
-    }
-  }, [router]);
 
   useEffect(() => {
     fetchPostBySlug(slug)
@@ -80,12 +57,7 @@ export default function PostContent({ slug }: { slug: string }) {
           <span className="text-red-500 text-xl">!</span>
         </div>
         <p className="text-red-500 text-sm">{error}</p>
-        <button
-          onClick={goBack}
-          className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
-        >
-          &larr; Go back
-        </button>
+        <BackButton />
       </div>
     );
   }
@@ -94,12 +66,7 @@ export default function PostContent({ slug }: { slug: string }) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4">
         <p className="text-zinc-500">Post not found.</p>
-        <button
-          onClick={goBack}
-          className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
-        >
-          &larr; Go back
-        </button>
+        <BackButton />
       </div>
     );
   }
@@ -120,21 +87,7 @@ export default function PostContent({ slug }: { slug: string }) {
 
       {/* Top nav */}
       <nav className="flex justify-between items-center px-8 py-6 max-w-3xl mx-auto">
-        <button
-          onClick={goBack}
-          className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
-        >
-          <svg
-            className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Go back
-        </button>
+        <BackButton />
       </nav>
 
       <main className="px-8 pb-20">
@@ -149,7 +102,7 @@ export default function PostContent({ slug }: { slug: string }) {
             {/* Meta row */}
             <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
               <time dateTime={post.date}>{formatDate(post.date)}</time>
-              <span className="text-zinc-300 dark:text-zinc-700">·</span>
+              <span className="text-zinc-300 dark:text-zinc-700">&middot;</span>
               <span>{readingTime} min read</span>
             </div>
           </header>
@@ -180,21 +133,7 @@ export default function PostContent({ slug }: { slug: string }) {
           <hr className="mt-16 mb-8 border-zinc-200 dark:border-zinc-800" />
 
           <div className="flex justify-between items-center">
-            <button
-              onClick={goBack}
-              className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
-            >
-              <svg
-                className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-              Go back
-            </button>
+            <BackButton />
           </div>
         </article>
       </main>

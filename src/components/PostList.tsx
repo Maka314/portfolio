@@ -5,20 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { WordPressPost } from "@/lib/wordpress";
 import { fetchPosts } from "@/lib/wordpress";
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
-function stripHtml(html: string): string {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  return div.textContent || div.innerText || "";
-}
+import { formatDate, stripHtml } from "@/lib/utils";
+import Spinner from "@/components/Spinner";
 
 export default function PostList() {
   const [posts, setPosts] = useState<WordPressPost[]>([]);
@@ -38,11 +26,7 @@ export default function PostList() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-zinc-500" />
-      </div>
-    );
+    return <Spinner />;
   }
 
   if (error) {
