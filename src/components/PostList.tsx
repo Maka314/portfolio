@@ -65,9 +65,7 @@ export default function PostList() {
         return (
           <Link
             key={post.id}
-            href={post.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/posts/${post.slug}`}
             className="group block rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           >
             {featuredImg && (
