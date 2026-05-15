@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function BackButton() {
   const router = useRouter();
@@ -10,17 +10,17 @@ export default function BackButton() {
     if (window.history.length > 1) {
       router.back();
     } else {
-      router.push("/");
+      router.push('/');
     }
   }, [router]);
 
   return (
     <button
       onClick={goBack}
-      className="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
+      className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
     >
       <svg
-        className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
+        className="h-4 w-4 transition-transform group-hover:-translate-x-0.5"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}

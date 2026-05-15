@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@tailwindcss/typography": "0.5.19",
@@ -24,6 +26,8 @@
     "eslint": "8",
     "eslint-config-next": "15.0.3",
     "postcss": "8",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "typescript": "5"
   }
 }

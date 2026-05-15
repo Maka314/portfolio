@@ -48,7 +48,7 @@ export default function ProjectCard({
 
   return (
     <motion.div
-      className='box'
+      className="box"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       style={{
@@ -63,17 +63,17 @@ export default function ProjectCard({
     >
       <a
         href={projectLink}
-        className='gap-2 max-h-screen w-80 rounded-xl m-7 p-5 flex flex-col justify-start items-start bg-slate-200 border border-slate-500 dark:bg-slate-800 dark:border-slate-700'
+        className="m-7 flex max-h-screen w-80 flex-col items-start justify-start gap-2 rounded-xl border border-slate-500 bg-slate-200 p-5 dark:border-slate-700 dark:bg-slate-800"
         style={{
           transformStyle: 'preserve-3d',
         }}
       >
         <Image
           src={projectImage}
-          alt='project cover'
+          alt="project cover"
           width={100}
           height={100}
-          className='rounded-xl w-full h-auto'
+          className="h-auto w-full rounded-xl"
           style={{
             transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
@@ -84,7 +84,7 @@ export default function ProjectCard({
             transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
           }}
-          className='font-semibold text-2xl overflow-auto'
+          className="overflow-auto text-2xl font-semibold"
         >
           {projectName}
         </h1>
@@ -93,7 +93,7 @@ export default function ProjectCard({
             transform: 'translateZ(40px)',
             transformStyle: 'preserve-3d',
           }}
-          className='break-words whitespace-normal'
+          className="whitespace-normal break-words"
         >
           {projectDescription}
         </p>

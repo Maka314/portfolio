@@ -18,30 +18,32 @@ const projectsData: ProjectData[] = [
   //   projectLink: "/post?slug=ai-regulation-assistant"
   // },
   {
-    projectName: "FX Risk Control System",
-    projectImage: "/images/project2_cover.png",
-    description: "Monitoring of foreign exchange trading behavior using machine learning methods",
-    projectLink: "/post?slug=fx-risk-control-system"
+    projectName: 'FX Risk Control System',
+    projectImage: '/images/project2_cover.png',
+    description: 'Monitoring of foreign exchange trading behavior using machine learning methods',
+    projectLink: '/post?slug=fx-risk-control-system',
   },
   {
-    projectName: "LLM Industry Application",
-    projectImage: "/images/project2_cover.png",
-    description: "LLM deployed in actual production environments is used to simplify customer service processes and intelligent services on the business side.",
-    projectLink: "/post?slug=llm-industry-application"
+    projectName: 'LLM Industry Application',
+    projectImage: '/images/project2_cover.png',
+    description:
+      'LLM deployed in actual production environments is used to simplify customer service processes and intelligent services on the business side.',
+    projectLink: '/post?slug=llm-industry-application',
   },
   {
-    projectName: "Neara Hackathon Winner",
-    projectImage: "/images/project3_cover.png",
-    description: "First place in the hackathon competition held by UNSW in collaboration with Neara, out of more than 30 teams. Development language is kotlin",
-    projectLink: "/post?slug=first-place-in-neara-hackathon"
-  }
+    projectName: 'Neara Hackathon Winner',
+    projectImage: '/images/project3_cover.png',
+    description:
+      'First place in the hackathon competition held by UNSW in collaboration with Neara, out of more than 30 teams. Development language is kotlin',
+    projectLink: '/post?slug=first-place-in-neara-hackathon',
+  },
 ];
 
 export default function Projects() {
   return (
-    <div className='flex flex-col justify-center items-center h-auto py-12'>
+    <div className="flex h-auto flex-col items-center justify-center py-12">
       <SectionHeading>Projects</SectionHeading>
-      <div className='flex flex-row justify-center items-start flex-wrap'>
+      <div className="flex flex-row flex-wrap items-start justify-center">
         {projectsData.map((project, index) => (
           <ProjectCard
             key={index}

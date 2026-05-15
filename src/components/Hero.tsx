@@ -27,22 +27,21 @@ export default function Hero() {
           stiffness: 400,
           damping: 17,
         }}
-        id='hero'
+        id="hero"
       >
-        <h1 className='hero_heading'>
-          Hi! I&apos;m <span className='font-medium'>Mingchen Ju</span> <br />{' '}
-          And I&apos;m a
+        <h1 className="hero_heading">
+          Hi! I&apos;m <span className="font-medium">Mingchen Ju</span> <br /> And I&apos;m a
           <RotatingText
             texts={title_list}
             mainClassName="px-2 sm:px-2 md:px-3 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-            elementLevelClassName='text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white'
-            staggerFrom={"last"}
-            initial={{ y: "100%" }}
+            elementLevelClassName="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center relative z-20 py-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white"
+            staggerFrom={'last'}
+            initial={{ y: '100%' }}
             animate={{ y: 0 }}
-            exit={{ y: "-120%" }}
+            exit={{ y: '-120%' }}
             staggerDuration={0.025}
             splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            transition={{ type: 'spring', damping: 30, stiffness: 400 }}
             rotationInterval={2000}
           />
         </h1>

@@ -1,12 +1,12 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Footer from "@/components/Footer";
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
     <>
-      <main className="relative flex flex-col justify-center items-center overflow-hidden mx-auto">
+      <main className="relative mx-auto flex flex-col items-center justify-center overflow-hidden">
         <Hero />
         <About />
         <Projects />

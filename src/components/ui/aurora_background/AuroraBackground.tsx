@@ -1,26 +1,23 @@
-'use client'
-import style from './AuroraBackground.module.css'
-import React, { ReactNode } from 'react'
+'use client';
+import style from './AuroraBackground.module.css';
+import React, { ReactNode } from 'react';
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export const AuroraBackground = ({
-  children,
-  ...props
-}: AuroraBackgroundProps) => {
+export const AuroraBackground = ({ children, ...props }: AuroraBackgroundProps) => {
   return (
     <div
       className={
-        'relative flex flex-col  h-[100vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg w-full'
+        'transition-bg relative flex h-[100vh] w-full flex-col items-center justify-center bg-zinc-50 text-slate-950 dark:bg-zinc-900'
       }
       {...props}
     >
-      <div className='absolute inset-0 overflow-hidden'>
+      <div className="absolute inset-0 overflow-hidden">
         <div className={style.auroraBack}></div>
       </div>
       {children}
     </div>
-  )
-}
+  );
+};
